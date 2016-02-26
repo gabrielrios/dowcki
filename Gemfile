@@ -7,9 +7,9 @@ gem 'jquery-rails'
 gem 'puma'
 
 gem 'simple_form'
-gem 'devise'
+gem 'devise', github: "plataformatec/devise"
 gem 'yard'
-gem 'grit'
+gem 'rugged'
 
 group :development, :test do
   gem 'pry-rails'
