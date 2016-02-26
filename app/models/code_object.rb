@@ -1,0 +1,2 @@
+class CodeObject < ApplicationRecord
+end
