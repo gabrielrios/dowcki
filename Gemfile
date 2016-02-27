@@ -9,7 +9,8 @@ gem 'puma'
 gem 'simple_form'
 gem 'devise', github: "plataformatec/devise"
 gem 'yard'
-gem 'rugged'
+gem 'rugged', git: 'git://github.com/libgit2/rugged.git', submodules: true
+gem 'sidekiq'
 
 group :development, :test do
   gem 'pry-rails'
