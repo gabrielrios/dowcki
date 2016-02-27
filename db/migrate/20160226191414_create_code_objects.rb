@@ -1,6 +1,7 @@
 class CreateCodeObjects < ActiveRecord::Migration[5.0]
   def change
     create_table :code_objects do |t|
+      t.string  :code_hash
       t.string  :type
       t.string  :superclass
       t.string  :value
@@ -24,6 +25,7 @@ class CreateCodeObjects < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
+    add_index :code_objects, :code_hash
     add_index :code_objects, :namespace
     add_index :code_objects, :name
   end

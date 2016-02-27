@@ -1,3 +1,4 @@
+
 class Repository
   attr_reader :url, :path
 
@@ -15,7 +16,7 @@ class Repository
   end
 
   def _clone
-    Rugged::Repository.clone_at(url, path)
+    Rugged::Repository.clone_at(url, path, { credentials: credentials })
   end
 
   def already_cloned?
@@ -31,4 +32,5 @@ class Repository
   def repo
     @repo ||= Rugged::Repository.new(path)
   end
+
 end

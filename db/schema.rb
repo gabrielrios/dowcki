@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226201000) do
+ActiveRecord::Schema.define(version: 20160227003458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "code_objects", force: :cascade do |t|
+    t.string   "code_hash"
     t.string   "type"
     t.string   "superclass"
     t.string   "value"
@@ -35,8 +36,10 @@ ActiveRecord::Schema.define(version: 20160226201000) do
     t.json     "aliases"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.boolean  "processing"
   end
 
+  add_index "code_objects", ["code_hash"], name: "index_code_objects_on_code_hash", using: :btree
   add_index "code_objects", ["name"], name: "index_code_objects_on_name", using: :btree
   add_index "code_objects", ["namespace"], name: "index_code_objects_on_namespace", using: :btree
 
