@@ -1,0 +1,11 @@
+<li>
+  <%= code_object.name %>
+  <% code_object.children.each do |obj| %>
+    <ul>
+      <%= render partial: "code_objects/navigation",
+        object: obj, as: :code_object %>
+    </ul>
+  <% end %>
+
+
+</li>

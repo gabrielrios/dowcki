@@ -52,6 +52,8 @@ class ProjectsController < ApplicationController
     end
 
     def check_processed
-      redirect_to project_path, notice: "Project isn't ready yet"
+      if @project.processing?
+        redirect_to projects_path, notice: "Project isn't ready yet"
+      end
     end
 end

@@ -16,7 +16,7 @@ class DocImporter
     repository.clone
     YARD.parse(repository.path)
 
-    DocObjectImporter.import(YARD::Registry.root)
+    DocObjectImporter.import(project, YARD::Registry.root)
   end
 
   def clone

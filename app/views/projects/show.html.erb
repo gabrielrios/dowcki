@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% @project.top_level.each do |code_object| %>
+  <ul>
+    <%= render partial: "code_objects/navigation",
+      object: code_object, as: :code_object %>
+  </ul>
+<% end %>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+

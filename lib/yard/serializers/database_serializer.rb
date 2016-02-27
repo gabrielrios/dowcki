@@ -8,9 +8,10 @@ module YARD
                   :line,       :scope,       :parameters]
 
     class DatabaseSerializer < Base
-      def serialize(object, parent)
+      def serialize(project, object, parent)
         attributes = serialize_attributes(object, parent)
-        CodeObject.create!(Hash[attributes].merge({ code_hash: object.hash }))
+        CodeObject.create!(Hash[attributes].merge({ project: project,
+                                                    code_hash: object.hash }))
       end
 
       def serialize_attributes(object, parent)
