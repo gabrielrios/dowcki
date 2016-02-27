@@ -13,4 +13,8 @@ class Project < ApplicationRecord
   def owned_by?(owner)
     self.user == owner
   end
+
+  def processed?
+    !processing
+  end
 end

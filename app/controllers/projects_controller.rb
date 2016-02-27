@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :check_processed, only: :show
 
   respond_to :html
 
@@ -21,11 +22,14 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.build(project_params)
+
     if @project.save
       @project.import
+      redirect_to projects_path
+    else
+      respond_with(@project)
     end
-    respond_with(@project)
   end
 
   def update
@@ -44,6 +48,10 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params[:project]
+      params.require(:project).permit(:name, :repository_url)
+    end
+
+    def check_processed
+      redirect_to project_path, notice: "Project isn't ready yet"
     end
 end

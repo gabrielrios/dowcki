@@ -1,5 +1,5 @@
 class AddProcessingToProject < ActiveRecord::Migration[5.0]
   def change
-    add_column :code_objects, :processing, :boolean
+    add_column :projects, :processing, :boolean, default: true
   end
 end

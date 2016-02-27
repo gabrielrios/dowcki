@@ -16,7 +16,7 @@ class Repository
   end
 
   def _clone
-    Rugged::Repository.clone_at(url, path, { credentials: credentials })
+    Rugged::Repository.clone_at(url, path)
   end
 
   def already_cloned?

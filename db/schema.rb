@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20160227003458) do
     t.json     "aliases"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.boolean  "processing"
   end
 
   add_index "code_objects", ["code_hash"], name: "index_code_objects_on_code_hash", using: :btree
@@ -44,11 +43,12 @@ ActiveRecord::Schema.define(version: 20160227003458) do
   add_index "code_objects", ["namespace"], name: "index_code_objects_on_namespace", using: :btree
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name",           null: false
-    t.string   "repository_url", null: false
-    t.integer  "user_id",        null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "name",                          null: false
+    t.string   "repository_url",                null: false
+    t.integer  "user_id",                       null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "processing",     default: true
   end
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree

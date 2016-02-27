@@ -3,5 +3,6 @@ class DocImporterJob < ApplicationJob
 
   def perform(project)
     DocImporter.import(project)
+    project.update_attributes({ processing: true })
   end
 end
