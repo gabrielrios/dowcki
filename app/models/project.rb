@@ -5,7 +5,7 @@ class Project < ApplicationRecord
   validates :repository_url, presence: true
 
   has_many :code_objects
-  has_many :top_level, -> { where(namespace_id: nil, type:"ModuleCodeObject") },
+  has_many :top_level, -> { where(namespace_id: nil) },
     class_name: "CodeObject"
 
   belongs_to :user

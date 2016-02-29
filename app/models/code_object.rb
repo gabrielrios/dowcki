@@ -4,6 +4,9 @@ class CodeObject < ApplicationRecord
 
   validates :code_hash, uniqueness: true
 
-  has_many :children, -> { where(type: ["ClassCodeObject", "ModuleClassObject"]) },
+  scope :classes, -> { where(type: "ClassCodeObject") }
+  scope :modules, -> { where(type: "ModuleCodeObject") }
+
+  has_many :children, -> { classes.or(modules).order(:name) },
     class_name: "CodeObject", foreign_key: :namespace_id
 end
