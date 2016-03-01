@@ -1,7 +1,6 @@
 <% @project.top_level.each do |code_object| %>
   <ul>
-    <%= render partial: "code_objects/navigation",
-      object: code_object, as: :code_object %>
+    <%= render code_object %>
   </ul>
 <% end %>
 

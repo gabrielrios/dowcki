@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160227010404) do
     t.boolean  "dynamic"
     t.integer  "visibility"
     t.text     "files",        default: [],              array: true
+    t.text     "docstring"
     t.integer  "line"
     t.integer  "scope"
     t.json     "parameters"

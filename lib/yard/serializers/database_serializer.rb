@@ -5,7 +5,7 @@ module YARD
     ATTRIBUTES = [:type,       :superclass,  :value,       :namespace_id,
                   :namespace,  :name,        :source,      :source_type,
                   :signature,  :dynamic,     :visibility,  #:files,
-                  :line,       :scope,       :parameters]
+                  :line,       :scope,       :parameters, :docstring]
 
     class DatabaseSerializer < Base
       def serialize(project, object, parent)

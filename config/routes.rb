@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :projects
+  resources :code_objects
 
   root to: "projects#index"
 

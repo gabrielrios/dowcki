@@ -1,0 +1,17 @@
+<h1><%= @code_object.name %></h1>
+<h2>
+  Constants
+</h2>
+<% @code_object.constants.each do |constant| %>
+  <%= constant.name %>
+  <%= raw constant.value %>
+  <br/>
+<% end %>
+
+<h2>
+  Methods
+</h2>
+<% @code_object.methods.each do |constant| %>
+  <%= constant.signature %>
+  <%= constant.parameters %><br/>
+<% end %>

@@ -16,6 +16,7 @@ class CreateCodeObjects < ActiveRecord::Migration[5.0]
       t.integer :visibility
 
       t.text :files, array: true, default: []
+      t.text :docstring
       t.integer :line
 
       t.integer :scope
