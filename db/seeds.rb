@@ -11,3 +11,5 @@ User.create(email: "admin@example.com",
 
 Project.create(user: User.first, name: "simple_form",
                repository_url: "https://github.com/plataformatec/simple_form.git")
+
+DocImporter.import(Project.first)

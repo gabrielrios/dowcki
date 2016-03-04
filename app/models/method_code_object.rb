@@ -1,0 +1,2 @@
+class MethodCodeObject < CodeObject
+end

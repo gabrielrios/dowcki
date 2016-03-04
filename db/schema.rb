@@ -28,19 +28,20 @@ ActiveRecord::Schema.define(version: 20160227010404) do
     t.string   "source_type"
     t.string   "signature"
     t.boolean  "dynamic"
-    t.integer  "visibility"
-    t.text     "files",        default: [],              array: true
+    t.string   "visibility"
+    t.text     "file"
     t.text     "docstring"
     t.integer  "line"
-    t.integer  "scope"
+    t.string   "scope"
     t.json     "parameters"
     t.json     "aliases"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "project_id",                null: false
+    t.boolean  "is_attribute"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "project_id",   null: false
   end
 
-  add_index "code_objects", ["code_hash"], name: "index_code_objects_on_code_hash", using: :btree
+  add_index "code_objects", ["code_hash"], name: "index_code_objects_on_code_hash", unique: true, using: :btree
   add_index "code_objects", ["name"], name: "index_code_objects_on_name", using: :btree
   add_index "code_objects", ["namespace"], name: "index_code_objects_on_namespace", using: :btree
   add_index "code_objects", ["project_id"], name: "index_code_objects_on_project_id", using: :btree

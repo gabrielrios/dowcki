@@ -2,7 +2,7 @@
 <h2>
   Constants
 </h2>
-<% @code_object.constants.each do |constant| %>
+<% @code_object.constant_objects.each do |constant| %>
   <%= constant.name %>
   <%= raw constant.value %>
   <br/>
@@ -11,7 +11,7 @@
 <h2>
   Methods
 </h2>
-<% @code_object.methods.each do |constant| %>
-  <%= constant.signature %>
-  <%= constant.parameters %><br/>
+<% @code_object.method_objects.public.each do |constant| %>
+  <%= constant.signature %><br/><br/>
+  <%= markdown_format constant.docstring %><br/><br/>
 <% end %>

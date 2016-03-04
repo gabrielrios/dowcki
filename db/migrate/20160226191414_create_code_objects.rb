@@ -13,20 +13,21 @@ class CreateCodeObjects < ActiveRecord::Migration[5.0]
       t.string  :source_type
       t.string  :signature
       t.boolean :dynamic
-      t.integer :visibility
+      t.string :visibility
 
-      t.text :files, array: true, default: []
+      t.text :file
       t.text :docstring
       t.integer :line
 
-      t.integer :scope
+      t.string :scope
       t.json :parameters
       t.json :aliases
+      t.boolean :is_attribute
 
       t.timestamps
     end
 
-    add_index :code_objects, :code_hash
+    add_index :code_objects, :code_hash, unique: true
     add_index :code_objects, :namespace
     add_index :code_objects, :name
   end

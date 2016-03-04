@@ -1,0 +1,1 @@
+class ConstantCodeObject < CodeObject; end

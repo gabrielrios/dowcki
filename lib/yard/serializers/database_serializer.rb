@@ -4,8 +4,8 @@ module YARD
 
     ATTRIBUTES = [:type,       :superclass,  :value,       :namespace_id,
                   :namespace,  :name,        :source,      :source_type,
-                  :signature,  :dynamic,     :visibility,  #:files,
-                  :line,       :scope,       :parameters, :docstring]
+                  :signature,  :dynamic,     :visibility,  :file,
+                  :line,       :scope,       :parameters, :docstring, :attr_info]
 
     class DatabaseSerializer < Base
       def serialize(project, object, parent)
@@ -19,6 +19,8 @@ module YARD
           case attr
           when :namespace_id
             [ :namespace_id, parent.try(:id) ]
+          when :attr_info
+            [ :is_attribute, !!object.try(:is_attribute?) ]
           when :type
             [ :type, "#{object.send(attr).capitalize}CodeObject"]
           else

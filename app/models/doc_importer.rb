@@ -25,6 +25,7 @@ class DocImporter
     YARD.parse(path)
 
     DocObjectImporter.import(project, YARD::Registry.root)
+    project.update_attributes({ processing: false })
   end
 
   def path
